@@ -8,66 +8,66 @@
 // Remember, in the world exists JavaScript array methods.  They can be very helpful (:
 
 class ArrayStack {
-    constructor() {
-        this.contents = []
-    }
-        
-    // Use add(value) - adds the given value to the stack in the array
-    // Return the stack (array)
-    // Since this is using a stack structure, where should the added item go?  Front or back?
-    add(value) {
+  constructor() {
+    this.contents = []
+  }
 
-        this.contents.push(value)
-        return this
-    }
+  // Use add(value) - adds the given value to the stack in the array
+  // Return the stack (array)
+  // Since this is using a stack structure, where should the added item go?  Front or back?
+  add(value) {
 
-    // Use remove() to remove the top value from the stack 
-    // Return the stack after the top value has been removed
-    // We are using a stack structure, so where should the item be removed from? Front (bottom) or back (top)?
-    remove() {
+    this.contents.push(value)
+    return this
+  }
 
-        this.contents.pop()
-        return this
-        
-    }
-    
-    // Use top() to return the top value of the stack WITHOUT removing it
-    // This should not affect or change the stack in any way
-    top() {
-       
-        var x = this.contents.pop()
+  // Use remove() to remove the top value from the stack 
+  // Return the stack after the top value has been removed
+  // We are using a stack structure, so where should the item be removed from? Front (bottom) or back (top)?
+  remove() {
 
-        this.contents.push(x)
+    this.contents.pop()
+    return this
 
-        return x
-    }
+  }
 
-    // Use contains(value) to search the stack for a value
-    // Return true if the value exists in the stack or return false if it doesn't
+  // Use top() to return the top value of the stack WITHOUT removing it
+  // This should not affect or change the stack in any way
+  top() {
 
-    contains(target) {
-    for (var i = 0; i < this.length; i++ ) {
-        
-        console.log(this[i])
-        if (this.contents[i] == target)
-        if (target==this[i]){
-            return true
+    var x = this.contents.pop()
+
+    this.contents.push(x)
+
+    return x
+  }
+
+  // Use contains(value) to search the stack for a value
+  // Return true if the value exists in the stack or return false if it doesn't
+
+  contains(target) {
+    for (var i = 0; i < this.length; i++) {
+
+      console.log(this[i])
+      if (this.contents[i] == target)
+        if (target == this[i]) {
+          return true
         }
     }
     return false
-}
+  }
 
-    // Use isEmpty() to check to see if the stack is empty
-    // Return true if the stack is empty or return false if it isn't
-    isEmpty() {
+  // Use isEmpty() to check to see if the stack is empty
+  // Return true if the stack is empty or return false if it isn't
+  isEmpty() {
 
-    }
+  }
 
-    // Use size() to return the amount of items in the stack
-    // Does this require a loop?
-    size() {
+  // Use size() to return the amount of items in the stack
+  // Does this require a loop?
+  size() {
 
-    }
+  }
 }
 
 //Stack those ABC blocks!
@@ -84,7 +84,7 @@ console.log(stack.remove());
 console.log(stack.add("D"));
 console.log(stack.top());
 console.log(stack.add("E"));
-console.log(stack.add("F")); 
+console.log(stack.add("F"));
 console.log(stack.size());
 console.log(stack.contains("A"));
 console.log(stack.contains("Z"));
@@ -96,59 +96,59 @@ console.log(stack.contains("Z"));
 // Ben's code //
 
 class ArrayStack {
-    constructor() {
-        this.contents = []
-    }
+  constructor() {
+    this.contents = []
+  }
 
-    // Use add(value) - adds the given value to the stack in the array
-    // Return the stack (array)
-    // Since this is using a stack structure, where should the added item go?  Front or back?
-    add(value) {
-      this.contents.unshift (value)
-      return this.contents
-    }
+  // Use add(value) - adds the given value to the stack in the array
+  // Return the stack (array)
+  // Since this is using a stack structure, where should the added item go?  Front or back?
+  add(value) {
+    this.contents.unshift(value)
+    return this.contents
+  }
 
-    // Use remove() to remove the top value from the stack 
-    // Return the stack after the top value has been removed
-    // We are using a stack structure, so where should the item be removed from? Front (bottom) or back (top)?
-    remove() {
-      var topValue = this.contents[0]
-      this.contents.shift (topValue)
-      return this.contents;
-    }
-    
-    // Use top() to return the top value of the stack WITHOUT removing it
-    // This should not affect or change the stack in any way
-    top() {
-      var firstIndex = (this.contents[0])
-      return firstIndex
-    }
+  // Use remove() to remove the top value from the stack 
+  // Return the stack after the top value has been removed
+  // We are using a stack structure, so where should the item be removed from? Front (bottom) or back (top)?
+  remove() {
+    var topValue = this.contents[0]
+    this.contents.shift(topValue)
+    return this.contents;
+  }
 
-    // Use contains(value) to search the stack for a value
-    // Return true if the value exists in the stack or return false if it doesn't
-    contains(target) {
-       for (var x = 0; x < this.contents.length; x++) {
-         if (this.contents[x] === target) {
-           return true
-         }
-       }
-       return false;
-    }
+  // Use top() to return the top value of the stack WITHOUT removing it
+  // This should not affect or change the stack in any way
+  top() {
+    var firstIndex = (this.contents[0])
+    return firstIndex
+  }
 
-    // Use isEmpty() to check to see if the stack is empty
-    // Return true if the stack is empty or return false if it isn't
-    isEmpty() {
-      if (this.contents.length < 1) {
+  // Use contains(value) to search the stack for a value
+  // Return true if the value exists in the stack or return false if it doesn't
+  contains(target) {
+    for (var x = 0; x < this.contents.length; x++) {
+      if (this.contents[x] === target) {
         return true
       }
-      return false;
     }
+    return false;
+  }
 
-    // Use size() to return the amount of items in the stack
-    // Does this require a loop?
-    size() {
-      return this.contents.length;
+  // Use isEmpty() to check to see if the stack is empty
+  // Return true if the stack is empty or return false if it isn't
+  isEmpty() {
+    if (this.contents.length < 1) {
+      return true
     }
+    return false;
+  }
+
+  // Use size() to return the amount of items in the stack
+  // Does this require a loop?
+  size() {
+    return this.contents.length;
+  }
 }
 
 //Stack those ABC blocks!
@@ -165,7 +165,7 @@ console.log(stack.remove());
 console.log(stack.add("D"));
 console.log(stack.top());
 console.log(stack.add("E"));
-console.log(stack.add("F")); 
+console.log(stack.add("F"));
 console.log(stack.size());
 console.log(stack.contains("A"));
 console.log(stack.contains("Z"));

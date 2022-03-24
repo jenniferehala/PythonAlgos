@@ -32,10 +32,14 @@ class ArrayStack {
 
     // Use top() to return the top value of the stack WITHOUT removing it
     // This should not affect or change the stack in any way
+    // top() {
+    //     var x = this.contents.pop()
+    //     this.contents.push(x)
+    //     return x
+    // }
+
     top() {
-        var x = this.contents.pop()
-        this.contents.push(x)
-        return x
+        return this.contents[this.contents.length - 1]
     }
 
     // Use contains(value) to search the stack for a value
@@ -51,14 +55,42 @@ class ArrayStack {
         return false
     }
 
+    // contains(target) {
+    //     for (var i = 0; i < this.length; i++) {
+    //         console.log(this[i])
+
+    //         if (this.contents[i] == target)
+    //             if (target == this[i]) {
+    //                 return true
+    //             }
+    //     }
+    //     return false
+    // }
+
     // Use isEmpty() to check to see if the stack is empty
     // Return true if the stack is empty or return false if it isn't
     isEmpty() {
+        if (this.contents.length == 0) {
+            return true
+        }
+        return false
     }
 
     // Use size() to return the amount of items in the stack
     // Does this require a loop?
-    size() { }
+    // size() {
+    //     var array = this.contents
+    //     var count = 0
+
+    //     for (var i = 0; i < array.length; i++) {
+    //         count++
+    //     }
+    //     return count
+    // }
+
+    size() {
+        return this.contents.length
+    }
 
 
 }
@@ -68,16 +100,16 @@ var stack = new ArrayStack();
 
 console.log(stack.isEmpty());
 console.log(stack.add("A"));
-// console.log(stack.isEmpty());
+console.log(stack.isEmpty());
 console.log(stack.add("B"));
 console.log(stack.add("C"));
 console.log(stack.top());
-// console.log(stack.remove());
-// console.log(stack.remove());
-// console.log(stack.add("D"));
-// console.log(stack.top());
-// console.log(stack.add("E"));
-// console.log(stack.add("F"));
-// console.log(stack.size());
+console.log(stack.remove());
+console.log(stack.remove());
+console.log(stack.add("D"));
+console.log(stack.top());
+console.log(stack.add("E"));
+console.log(stack.add("F"));
+console.log(stack.size());
 console.log(stack.contains("A"));
 console.log(stack.contains("Z"));
