@@ -24,18 +24,18 @@ class SLLStack {
     // Edge Case - what if the list is empty?
 
     add(value) {
-        var new_node = new ListNode(value);
+        var node = new ListNode(value);
 
         if (this.head == null) {
-            this.head = new_node
-            this.tail = new_node
+            this.head = node
+            this.tail = node
         }
         else {
-            new_node.next = this.head
-            this.head = new_node
+            node.next = this.head
+            this.head = node
         }
 
-        return new_node.value
+        return node.value
     }
 
     //Use remove() to take away the node on top of the stack
@@ -45,29 +45,35 @@ class SLLStack {
     // Name the new head  and then cut the connection to the old head
     // Edge Cases - what if the list is empty? What if there's only one node in the list
 
-    // remove(value) {
+    remove() {
 
-    //     var runner = this.head
+        if (this.head == null) {
+            return undefined;
+        }
+        else if (this.head == this.tail) {
+            var temp = this.head;
+            this.head = null;
+            this.tail = null;
+            return temp.value;
 
-    //     while (runner != this.tail) {
-    //         if (runner.next = this.tail) {
-    //             var temp = this.head
-    //             this.tail = runner
-    //             runner.next = null
-    //             return temp.value
-    //         }
-    //         else {
-    //             runner = runner.next
-    //         }
+        }
 
-    //     }
-    // }
+        var temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+
+        return temp.value
+
+    }
 
     // Use top() to return the value of the top node of the stack without removing it 
     // Edge Case - What if the list is empty?
 
     top() {
-
+        if (this.head == null) {
+            return null
+        }
+        return this.head.value
     }
 
     // Use contains(value) to search the stack for a received value
@@ -75,7 +81,15 @@ class SLLStack {
     // There are no built in "stack" methods like "includes" in JS
     // So how do we go through a whole stack? Wanna go for a run...? (:
     contains(value) {
+        var runner = this.head
 
+        while (runner != null) {
+            if (runner.value == value) {
+                return true
+            }
+            runner = runner.next
+        }
+        return false
     }
 
     //Use isEmpty to see if the stack is empty
@@ -91,7 +105,19 @@ class SLLStack {
     // Return the total number of nodes the stack
     // Edge Case - What if the list is empty?
     size() {
+        var count = 0
+        var runner = this.head
 
+        if (this.head == null) {
+            return;
+        }
+        else {
+            while (runner != null) {
+                count++
+                runner = runner.next
+            }
+            return count
+        }
     }
 
     //This is given to you for your convenience, nothing to do here (:
@@ -103,11 +129,13 @@ class SLLStack {
         var runner = this.head.next
 
         while (runner != null) {
-            values += " - " + runner.value;
+            values += "-" + runner.value;
             runner = runner.next;
         }
-        return values;
+
+        return values
     }
+
 
 }
 
@@ -121,17 +149,17 @@ console.log(x.isEmpty()); // false
 console.log(x.add("B"));  // B
 console.log(x.add("C"));  // C
 console.log(x.display()); // C - B - A
-// console.log(x.top()); // C
+console.log(x.top()); // C
 
-// console.log(x.remove());  // C
-// console.log(x.remove());  // B
-// console.log(x.display()); // A
+console.log(x.remove());  // C
+console.log(x.remove());  // B
+console.log(x.display()); // A
 
-// console.log(x.add("D"));  // D
-// console.log(x.add("E"));  // E
-// console.log(x.display()); // E - D - A
-// console.lot(x.top()); // E
-// console.lot(x.size()); // 3
-// console.lot(x.contains("E")); // true
-// console.lot(x.contains("Z")); // false
+console.log(x.add("D"));  // D
+console.log(x.add("E"));  // E
+console.log(x.display()); // E - D - A
+console.log(x.top()); // E
+console.log(x.size()); // 3
+console.log(x.contains("E")); // true
+console.log(x.contains("Z")); // false
 
