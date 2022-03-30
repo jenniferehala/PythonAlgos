@@ -1,26 +1,3 @@
-// Greatest Common Factor
-// Given two integers, create recursiveGreatestCommonFactor(num1, num2) to recursively determine Greatest Common Factor (the largest integer dividing evenly into both). Greek mathematician Euclid demonstrated these facts:
-// 1) if num1 === num2, that number is the greatest common factor;
-// 2) if a>b, then you can remove b from a, which gets you closer to the GCF;
-// 3) if b>a, then you can remove a from b, which gets you closer to the GCF;
-// Second: rework facts #2 and #3 to reduce stack consumption and expand rGCF ’s reach. You should be able to compute rGCF(123456,987654) .
-
-function recursiveGreatestCommonFactor(num1, num2) {
-    if (num2 === 0) {
-        return num1
-    } else {
-        return recursiveGreatestCommonFactor(num2, num1 % num2);
-    }
-}
-
-console.log(recursiveGreatestCommonFactor(50, 180)); // 10
-console.log(recursiveGreatestCommonFactor(7, 35)); // 7
-console.log(recursiveGreatestCommonFactor(65, 95)); // 5
-console.log(recursiveGreatesstCommonFactor(123456, 987654)); // 6
-console.log(recursiveGreatestCommonFactor(102, 1000)); // 2
-console.log(recursiveGreatestCommonFactor(7, 13)); // 1
-
-
 
 // =============================================
 // Binary Search (for today/tomorrow)
@@ -32,8 +9,9 @@ console.log(recursiveGreatestCommonFactor(7, 13)); // 1
 // Also, even though there's only an array and value given, you can add additional parameters to your function.
 // Return -1 if the number is not in the array
 
+
 // val = 9
-// arr = [1,2,3,5,7,9,10,11,13,14,15,56,78]
+// arr = [1,2,3,5,7,9,10 ,11,13,14,15,56,78]
 
 // [1,2,3,5,7,9,10      |        11,13,14,15,56,78] <----- 9 is less than halfway so now you can search the left side only
 // [1,2,3,5,       |        7,9,10] <------  9 is greater than halfway so you can search the right side only
@@ -41,15 +19,35 @@ console.log(recursiveGreatestCommonFactor(7, 13)); // 1
 // [9,     |      10] <------ whittle down to 1 or 2 items to check and solve!
 
 
-function recursiveBinarySearch(arr) {
-        var val;
-        var leftarr = []
-        var rightarr = []
-        if (  )
-            recursiveBinarySearch( , )
-            
+function recursiveBinarySearch(arr, val, left = 0, right = 0) {
+
+    if (arr.length < 1) {
+        return -1
+    }
+
+    //as long as our indices are at least 2 elements apart
+    if (right - left > 1) {
+        //declare midpoint
+        midpoint = Math.floor((left + right) / 2)
+
+        if (arr[midpoint] == val) {
+            return midpoint
+        }
+        if (val < arr[midpoint]) {
+            return recursiveBinarySearch(val, arr, left, midpoint)
+        }
+
+        return recursiveBinarySearch(num, arr, mid + 1, right)
+
+    }
+    return arr[left] == val ? left : -1;
 
 }
+
+console.log(recursiveBinarySearch(9, [1, 2, 3, 5, 7, 9, 10, 11, 13, 14, 15, 56, 78], 9))
+
+
+
 
 // [1, 2], ---> -2
 // [1, 2], ---> 4

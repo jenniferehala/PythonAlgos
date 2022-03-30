@@ -1,6 +1,8 @@
+
+
 const combine = (leftArr, rightArr) => {
-    
-    
+
+
     var result = [];
     while (leftArr.length && rightArr.length) {
 
@@ -10,9 +12,6 @@ const combine = (leftArr, rightArr) => {
             result.push(rightArr.shift());
         }
     }
-
-
-
 
     while (leftArr.length) {
         result.push(leftArr.shift());
@@ -25,6 +24,6 @@ const combine = (leftArr, rightArr) => {
 
 
 
-console.log(combine([1,2,7,9],[0,3,4,6,11]));
+console.log(combine([1, 2, 7, 9], [0, 3, 4, 6, 11]));
 
-console.log(combine([1],[0]))
+console.log(combine([1], [0]))
