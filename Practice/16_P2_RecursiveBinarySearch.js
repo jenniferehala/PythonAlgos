@@ -19,7 +19,11 @@
 // [9,     |      10] <------ whittle down to 1 or 2 items to check and solve!
 
 
-function recursiveBinarySearch(arr, val, left = 0, right = 0) {
+function recursiveBinarySearch(val, arr, left = 0, right = arr.length) {
+    // console.log(arr)
+    // console.log(arr.length)
+    // console.log(left)
+    // console.log(right)
 
     if (arr.length < 1) {
         return -1
@@ -29,22 +33,24 @@ function recursiveBinarySearch(arr, val, left = 0, right = 0) {
     if (right - left > 1) {
         //declare midpoint
         midpoint = Math.floor((left + right) / 2)
+        // console.log(midpoint)
 
         if (arr[midpoint] == val) {
             return midpoint
         }
         if (val < arr[midpoint]) {
+            // console.log(arr[midpoint])
             return recursiveBinarySearch(val, arr, left, midpoint)
         }
-
-        return recursiveBinarySearch(num, arr, mid + 1, right)
+        // console.log(right)
+        return recursiveBinarySearch(val, arr, midpoint + 1, right)
 
     }
     return arr[left] == val ? left : -1;
 
 }
 
-console.log(recursiveBinarySearch(9, [1, 2, 3, 5, 7, 9, 10, 11, 13, 14, 15, 56, 78], 9))
+console.log(recursiveBinarySearch(9, [1, 2, 3, 5, 7, 9, 10, 11, 13, 14, 15, 56, 78]))
 
 
 

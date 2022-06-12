@@ -18,15 +18,26 @@
 // [9,     |      10] <------ whittle down to 1 or 2 items to check and solve!
 
 
-function recursiveBinarySearch(arr) {
-    var val;
-    var leftarr = []
-    var rightarr = []
-    if (  )
-        recursiveBinarySearch( ,)
+function binarySearch(num, arr, l = 0, r = arr.length) {
+    if (arr.length < 1) {
+        return -1;
+    }
+    // as long as our indices are at least 2 elements apart, continue recursion 
+    if (r - l > 1) {
+        // declare midpoint
+        var mid = Math.floor((r + l) / 2);
 
-
+        if (arr[mid] == num) {
+            return mid
+        }
+        if (num < arr[mid]) {
+            return binarySearch(num, arr, l, mid);
+        }
+        return binarySearch(num, arr, mid + 1, r);
+    }
+    return arr[l] == num ? l : -1;
 }
+console.log(binarySearch(4, [1, 2, 3, 4, 5, 7, 9, 10, 11, 13, 14, 15]))
 
 // [1, 2], ---> -2
 // [1, 2], ---> 4

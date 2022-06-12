@@ -1,8 +1,7 @@
 
 
+//Merge sort: merge two arrays and sort.
 const combine = (leftArr, rightArr) => {
-
-
     var result = [];
     while (leftArr.length && rightArr.length) {
 
@@ -24,6 +23,6 @@ const combine = (leftArr, rightArr) => {
 
 
 
-console.log(combine([1, 2, 7, 9], [0, 3, 4, 6, 11]));
+console.log(combine([1, 2, 7, 9], [0, 3, 4, 6, 11])); // [0,1,2,3,4,6,7,9,11]
 
-console.log(combine([1], [0]))
+console.log(combine([1], [0])) // [0,1]
